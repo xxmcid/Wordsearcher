@@ -1,0 +1,28 @@
+Humza Rahman
+Dr. Tanvir Ahmed | COP3503 | Spring 2022
+Assignment 02 Analysis
+
+BACKTRACKING ALGORITHM ANALYSIS
+*Note the runtime analysis will only consider the actual Backtracking
+utility and not the ridiculous amounts of for loops I used to process all the data from
+the in.txt file*
+
+The wrapper function has a nested O(m * n ) loop that iterates through
+the entire matrix to find the first letter to begin the word search.
+Although in some cases the wrapper function will find the first letter
+before iterating through the whole matrix, we still have to consider the runtime
+as O(m * n) since big-oh is an upper-bound.
+
+Furthermore, lets move on to the actual backtracking function. According to the
+assignment instructions, we are able to move in 8 possible directions (up, down,
+left, right, and the 4 diagonals). This translates to 8 separate recursive calls.
+The number of recursive calls are all dependent on the length of the string that we are
+attempting to search for. Thus the runtime for SEARCHING for a single word is
+O(7^k) where k is the length of the string to be searched for. Note that the runtime
+is 7^k and not 8^k; This is because we're assuming that there has been a letter already
+placed down so we can't move in the direction of an already placed letter. This leaves
+7 possible directions to move in.
+
+FINAL RUNTIME WITH WRAPPER = O(m*n * 7^k)
+where m & n are the dimensions of the matrix rows and columns respectfully
+k is the length of the string to be searched for.
